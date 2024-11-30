@@ -1,45 +1,90 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import Header from "@/components/Header";
+import { SimpleLineIcons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
+import React from "react";
+import { Image, View } from "react-native";
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const _layout = () => {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+        header: () => <Header />,
+        animation: "shift",
+        tabBarStyle: {
+          backgroundColor: "#1F1B1B",
+          height: 70,
+        },
+        tabBarLabelStyle: { marginTop: 3, fontSize: 14 },
+        tabBarIconStyle: {
+          marginTop: 5,
+        },
+        tabBarActiveTintColor: "white",
+        headerPressColor: "white",
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Game Board",
+          tabBarIcon: () => (
+            <View>
+              <Image
+                source={require("@/assets/images/icons/game-board.png")}
+                className="w-7 h-7"
+              />
+            </View>
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="register"
+        listeners={{
+          tabPress: (e) => {
+            e.preventDefault();
+          },
+        }}
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: () => (
+            <View>
+              <Image
+                source={require("@/assets/images/icons/register.png")}
+                className="w-7 h-7"
+              />
+            </View>
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="rank"
+        listeners={{
+          tabPress: (e) => {
+            e.preventDefault();
+          },
+        }}
+        options={{
+          tabBarIcon: () => (
+            <View>
+              <SimpleLineIcons name="chart" size={24} color="white" />
+            </View>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="news"
+        options={{
+          tabBarIcon: () => (
+            <View>
+              <Image
+                source={require("@/assets/images/icons/news.png")}
+                className="w-7 h-7"
+              />
+            </View>
+          ),
         }}
       />
     </Tabs>
   );
-}
+};
+
+export default _layout;

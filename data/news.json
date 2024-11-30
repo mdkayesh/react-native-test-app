@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Breaking: Major Storm Approaching the East Coast",
+    "timeAgo": "2 hours ago",
+    "commentsCount": 42,
+    "image": "@/assets/images/news-thumb.png"
+  },
+  {
+    "title": "Sports Update: Local Team Wins Championship",
+    "timeAgo": "1 day ago",
+    "commentsCount": 68,
+    "image": "@/assets/images/news-thumb.png"
+  },
+  {
+    "title": "Tech News: New Smartphone Released with Revolutionary Features",
+    "timeAgo": "3 days ago",
+    "commentsCount": 120,
+    "image": "@/assets/images/news-thumb.png"
+  },
+  {
+    "title": "Health Tips: 10 Ways to Stay Fit During Winter",
+    "timeAgo": "5 days ago",
+    "commentsCount": 35,
+    "image": "@/assets/images/news-thumb.png"
+  },
+  {
+    "title": "Travel Guide: Top Destinations for 2024",
+    "timeAgo": "1 week ago",
+    "commentsCount": 89,
+    "image": "@/assets/images/news-thumb.png"
+  }
+]
